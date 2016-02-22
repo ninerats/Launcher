@@ -1,0 +1,2 @@
+﻿latest stable = 1.2.0.2
+initial = 1.0.0.0
