@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SampleApp.Launcher;
@@ -39,8 +40,7 @@ namespace SampleApp
             }
             if (!VersionManager.IsSupported(Versions.ThisVersion))
             {
-                var askResult = NewVersionForm.AskToUpgrade(Application.ProductName, Versions.ThisVersion,
-                    VersionManager.LatestStableVersion);
+                var askResult = ForceUpgradeForm.Show(Application.ProductName, Assembly.GetExecutingAssembly().Location);
                 if (askResult.Success)
                 {
                     if (askResult.Value == DialogResult.OK)

@@ -31,6 +31,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>SampleApp.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -54,6 +57,12 @@
     <Compile Include="AppMainForm.Designer.cs">
       <DependentUpon>AppMainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Launcher\ForceUpgradeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Launcher\ForceUpgradeForm.Designer.cs">
+      <DependentUpon>ForceUpgradeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Launcher\Lancher.cs" />
     <Compile Include="Launcher\Versions.cs" />
     <Compile Include="Launcher\NewVersionForm.cs">
@@ -73,6 +82,9 @@
     <EmbeddedResource Include="AppMainForm.resx">
       <DependentUpon>AppMainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Launcher\ForceUpgradeForm.resx">
+      <DependentUpon>ForceUpgradeForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Launcher\NewVersionForm.resx">
       <DependentUpon>NewVersionForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -84,6 +96,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Launcher\VersionPickerForm.resx">
       <DependentUpon>VersionPickerForm.cs</DependentUpon>
@@ -101,7 +114,10 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="cobweb.png" />
+    <Content Include="SampleApp.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>copy $(TargetPath) D:\Test\SampleApp\$(TargetFileName)
